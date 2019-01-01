@@ -11,7 +11,7 @@ CORS(APP)
 
 
 RECENT_IP_ADDRESSES = dict()
-REQUEST_COOLDOWN_SECONDS = 2
+REQUEST_COOLDOWN_SECONDS = 6
 
 
 @APP.route('/')
@@ -58,8 +58,12 @@ def _handle(request):
     print(f"Hash is: {hashed}")
     
     filename = f"secrets/{hashed}.secret"
-
     
+    try:
+        with open(filename, 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+        return f"No secret found for '{secret}'. Try something else."
 
     return "Hello"
 
