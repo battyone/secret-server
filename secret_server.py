@@ -1,3 +1,4 @@
+import math
 import time
 import sys
 import urllib.parse
@@ -56,6 +57,10 @@ def _handle(request):
     hashed = hashlib.sha256(secret).hexdigest()
     print(f"Hash is: {hashed}")
     
+    filename = f"secrets/{hashed}.secret"
+
+    
+
     return "Hello"
 
 
