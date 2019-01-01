@@ -51,10 +51,10 @@ def _attempt_to_handle(request):
 
 
 def _handle(request):
-    secret = urllib.parse.unquote(str(request.args["secret"])).encode("UTF-8")
+    secret = urllib.parse.unquote(str(request.args["secret"]))
     print(f"Received Secret: {secret}")
 
-    hashed = hashlib.sha256(secret).hexdigest()
+    hashed = hashlib.sha256(secret.encode("UTF-8")).hexdigest()
     print(f"Hash is: {hashed}")
     
     filename = f"secrets/{hashed}.secret"
