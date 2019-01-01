@@ -65,7 +65,7 @@ def _handle(request):
             print("Success. Read file.")
             return f.read()
     except FileNotFoundError:
-            print("Nothing found.")
+        print("Nothing found.")
         return f"No secret found for '{secret}'. Try something else."
 
     return "Hello"
