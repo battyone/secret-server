@@ -58,11 +58,14 @@ def _handle(request):
     print(f"Hash is: {hashed}")
     
     filename = f"secrets/{hashed}.secret"
-    
+    print(f"Filename is: {filename}")
+
     try:
         with open(filename, 'r') as f:
+            print("Success. Read file.")
             return f.read()
     except FileNotFoundError:
+            print("Nothing found.")
         return f"No secret found for '{secret}'. Try something else."
 
     return "Hello"
