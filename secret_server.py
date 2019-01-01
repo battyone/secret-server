@@ -57,7 +57,7 @@ def _handle(request):
     hashed = hashlib.sha256(secret.encode("UTF-8")).hexdigest()
     print(f"Hash is: {hashed}")
     
-    filename = f"secrets/{hashed}.secret"
+    filename = f"secrets/{hashed.upper()}.secret"
     print(f"Filename is: {filename}")
 
     try:
