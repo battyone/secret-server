@@ -63,5 +63,5 @@ if __name__ == '__main__':
     ssl_file = lambda path: ssl_directory + '/' + path
     ssl_context = (ssl_file('fullchain.pem'), ssl_file('privkey.pem'))
     print(ssl_context)
-    APP.run(host="0.0.0.0", port=4105, threaded=True, ssl_context=ssl_context)
+    APP.run(host="0.0.0.0", port=5001, threaded=True, ssl_context=ssl_context)
 
