@@ -17,6 +17,7 @@ REQUEST_COOLDOWN_SECONDS = 6
 @APP.route('/')
 def reveal_secret():
     ip_address = request.remote_addr
+    print()
     print(f"Received request from {ip_address}")
     if _should_accept(ip_address):
         return _attempt_to_handle(request)
