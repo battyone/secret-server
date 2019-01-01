@@ -50,7 +50,7 @@ def _attempt_to_handle(request):
 
 
 def _handle(request):
-    secret = urllib.parse.unquote(str(request.args["secret"]))
+    secret = urllib.parse.unquote(str(request.args["secret"])).encode("UTF-8")
     print(f"Received Secret: {secret}")
 
     hashed = hashlib.sha256(secret).hexdigest()
