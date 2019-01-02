@@ -71,7 +71,7 @@ def _handle(request):
                         console.log("Resizing");
                         const height = document.body.scrollHeight;
                         parent.postMessage(`resizeIframe ${height}`, '*');
-                    }, 200);
+                    }, 1000);
                 </script>
             """
 
