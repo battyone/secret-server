@@ -62,9 +62,21 @@ def _handle(request):
         with open(filename, 'r') as f:
             print("Success. Read file.")
             contents = f.read()
+
             contents = re.sub("(?i)</html>", "", contents)
-            script = "<script>/*parent.postMessage('resizeIframe', 'foo');*/console.log('Yeet');</script>"
-            return contents + "\n" + script + "\n" + "</html>"
+
+            script = """
+                <script>
+                    console.log('Firing event from child');
+                    parent.postMessage('resizeIframe', 'foo');
+                </script>
+            """
+
+            contents = f"{contents}\n{script}\n"
+
+            if "<html>" in contents.lower():
+                contents += "</html>"
+
     except FileNotFoundError:
         print("Nothing found.")
         return f"No secret found for '{secret}'. Try something else."
