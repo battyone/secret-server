@@ -68,8 +68,10 @@ def _handle(request):
             script = """
                 <script>
                     const sendSize = () => {
-                        const height = document.body.offsetHeight;
-                        parent.postMessage(`resizeIframe ${height}`, '*');
+                        try {
+                            const height = document.body.offsetHeight;
+                            parent.postMessage(`resizeIframe ${height}`, '*');
+                        } catch {}
                     }
             
                     sendSize();
