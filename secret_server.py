@@ -67,8 +67,8 @@ def _handle(request):
 
             script = """
                 <script>
-                    console.log('Firing event from child');
-                    parent.postMessage('resizeIframe', 'foo');
+                    const height = document.scrollHeight;
+                    parent.postMessage(`resizeIframe ${scrollHeight}`, '*');
                 </script>
             """
 
