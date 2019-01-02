@@ -67,7 +67,7 @@ def _handle(request):
 
             script = """
                 <script>
-                    const height = document.scrollHeight;
+                    const height = document.body.scrollHeight;
                     parent.postMessage(`resizeIframe ${scrollHeight}`, '*');
                 </script>
             """
