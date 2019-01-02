@@ -60,7 +60,8 @@ def _handle(request):
     try:
         with open(filename, 'r') as f:
             print("Success. Read file.")
-            return f.read()
+            contents = f.read()
+            return contents + "\n\n<script>parent.postMessage('resizeIframe', 'foo');</script>"
     except FileNotFoundError:
         print("Nothing found.")
         return f"No secret found for '{secret}'. Try something else."
