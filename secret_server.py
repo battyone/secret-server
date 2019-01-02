@@ -2,7 +2,6 @@ import math
 import time
 import sys
 import urllib.parse
-import hashlib
 from flask import Flask, request
 from flask_cors import CORS
 
@@ -55,10 +54,7 @@ def _handle(request):
     secret = urllib.parse.unquote(str(request.args["secret"]))
     print(f"Received Secret: {secret}")
 
-    hashed = hashlib.sha256(secret.encode("UTF-8")).hexdigest()
-    print(f"Hash is: {hashed}")
-    
-    filename = f"secrets/{hashed.upper()}.secret"
+    filename = f"secrets/{secret}.secret"
     print(f"Filename is: {filename}")
 
     try:
