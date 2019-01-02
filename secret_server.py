@@ -68,13 +68,12 @@ def _handle(request):
             script = """
                 <script>
                     setInterval(() => {
-                        const height = document.body.offsetHeight;
                         console.log(document.body.offsetHeight);
                         console.log(document.body.scrollHeight);
-                        console.log(document.body.height);
                         console.log(" ");
+                        const height = document.body.scrollHeight;
                         parent.postMessage(`resizeIframe ${height}`, '*');
-                    }, 10000);
+                    }, 4000);
                 </script>
             """
 
