@@ -73,7 +73,7 @@ def _handle(request):
                     }
             
                     sendSize();
-                    setInterval(sendSize, 500);
+                    setInterval(sendSize, 1000);
                 </script>
             """
 
