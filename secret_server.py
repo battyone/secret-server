@@ -1,6 +1,7 @@
 import math
-import time
+import re
 import sys
+import time
 import urllib.parse
 from flask import Flask, request
 from flask_cors import CORS
@@ -61,8 +62,9 @@ def _handle(request):
         with open(filename, 'r') as f:
             print("Success. Read file.")
             contents = f.read()
-            return contents + "\n\n<script>parent.postMessage('resizeIframe', 'foo');</script>"
-    except FileNotFoundError:
+            contents = re.sub("(?i)</html>", "")
+            return contents + "\n\n<script>parent.postMessage('resizeIframe', 'foo');</script>\n\n</html>"
+     except FileNotFoundError:
         print("Nothing found.")
         return f"No secret found for '{secret}'. Try something else."
 
