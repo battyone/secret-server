@@ -63,7 +63,7 @@ def _handle(request):
             print("Success. Read file.")
             contents = f.read()
             contents = re.sub("(?i)</html>", "", contents)
-            script = "<script>parent.postMessage('resizeIframe', 'foo');console.log('Yeet');</script>"
+            script = "<script>/*parent.postMessage('resizeIframe', 'foo');*/console.log('Yeet');</script>"
             return contents + "\n" + script + "\n" + "</html>"
     except FileNotFoundError:
         print("Nothing found.")
