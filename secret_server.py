@@ -69,7 +69,7 @@ def _handle(request):
                 <script>
                     setInterval(() => {
                         console.log("Resizing");
-                        const height = document.body.scrollHeight;
+                        const height = this.contentWindow.document.body.offsetHeight;
                         parent.postMessage(`resizeIframe ${height}`, '*');
                     }, 1000);
                 </script>
