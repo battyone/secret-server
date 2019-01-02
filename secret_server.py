@@ -68,8 +68,8 @@ def _handle(request):
             script = """
                 <script>
                     setInterval(() => {
-                        console.log(this.contentWindow);
-                        const height = this.contentWindow.document.body.offsetHeight;
+                        console.log(document);
+                        const height = document.body.offsetHeight;
                         parent.postMessage(`resizeIframe ${height}`, '*');
                     }, 10000);
                 </script>
