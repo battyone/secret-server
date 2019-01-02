@@ -77,6 +77,8 @@ def _handle(request):
             if "<html>" in contents.lower():
                 contents += "</html>"
 
+            return contents
+
     except FileNotFoundError:
         print("Nothing found.")
         return f"No secret found for '{secret}'. Try something else."
