@@ -65,7 +65,7 @@ def _handle(request):
             contents = re.sub("(?i)</html>", "", contents)
             script = "<script>parent.postMessage('resizeIframe', 'foo');</script>"
             return contents + "\n" + script + "\n" + "</html>"
-     except FileNotFoundError:
+    except FileNotFoundError:
         print("Nothing found.")
         return f"No secret found for '{secret}'. Try something else."
 
